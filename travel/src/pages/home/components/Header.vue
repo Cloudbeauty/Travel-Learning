@@ -24,8 +24,8 @@ name: 'homeHeader',
 
 <style lang="stylus" scoped>
 //1rem = html font-size = 50px  
-	@import '~@/assets/styles/varibles.styl'      
-	//css中引用使用 ~@ 到达src目录
+	@import '~styles/varibles.styl'      
+	//css中引用使用 ~@ 到达src目录 ~styles到达styles目录
 	.header
 		display: flex;
 		height: .86rem;     //二倍图 86px/100 ——→ 43px /50
