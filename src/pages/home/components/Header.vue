@@ -7,10 +7,12 @@
 			<span class="iconfont">&#xe632;</span>
 			输入城市/景点/游玩主题
 		</div>
-		<div class="header-right">
-			{{this.city}}
-			<span class="iconfont arrow-icon">&#xe64a;</span>
-		</div>
+		<router-link to="/city">
+			<div class="header-right">
+				{{this.city}}
+				<span class="iconfont arrow-icon">&#xe64a;</span>
+			</div>
+		</router-link>
 	</div>
 </template>
 
@@ -30,10 +32,10 @@ export default {
 	//css中引用使用 ~@ 到达src目录 ~styles到达styles目录
 	.header
 		display: flex;
-		height: .86rem;     //二倍图 86px/100 ——→ 43px /50
+		height: $headerHeight;     //二倍图 86px/100 ——→ 43px /50
 		background: $bgColor;
 		color: #fff;
-		line-height: .86rem;
+		line-height: $headerHeight;
 		.header-left
 			width: .64rem;      //64px/100 32px/50
 			float: left;
@@ -53,6 +55,7 @@ export default {
 		.header-right
 			width: 1.24rem;          //124px/100 62px/50
 			float: right;
+			color: #fff;
 			text-align: center;
 			.arrow-icon
 				margin-left: -.04rem;
