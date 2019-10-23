@@ -11,6 +11,7 @@
 					<p class="icon-desc">{{item.desc}}</p>
 				</div>
 		    </swiper-slide>  
+		    <div class="swiper-pagination"  slot="pagination"></div>
 		 </swiper>
 	</div>
 </template>
@@ -20,7 +21,10 @@ export default {
 	name: 'HomeIcons',
 	data () {
 		return {
-			swiperOption: {},
+			swiperOption: {
+				pagination: '.swiper-pagination',
+				loop: true         //使轮播插件支持循环轮播
+			},
 			iconLists: [{
 				id: '001',
 				imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
@@ -87,37 +91,40 @@ export default {
 .icons >>> .swiper-container
 	width: 100%;
 	height: 0;
-	padding-bottom: 50%;         //宽高2：1
+	padding-bottom: 54%;         //宽高2：1
 	//overflow: hidden;    swiper-container自带
-
-.icon                        //小图标
-	width: 25%;
-	float: left;
-	padding-bottom: 25%;     //宽高1：1
-	overflow: hidden;
-	height: 0;
-	position: relative;
-	.icon-img                //图标图片
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: .44rem;  //22px 预留文字位置
-		box-sizing: broder-box;
-		padding: 1px;
-		.icon-img-content
-			display: block;     //图片居中
-			margin: 0 auto;
-			height: 100%;
-	.icon-desc                 //图标文字
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		height: .44rem;
-		line-height: .44rem;
-		text-align: center;
-		color: $darkTextColor;
-		ellipsis();
+.icons >>> .swiper-pagination
+	bottom: 0;
+.icons
+	margin-top: .1rem;
+	.icon                        //小图标
+		width: 25%;
+		float: left;
+		padding-bottom: 25%;     //宽高1：1
+		overflow: hidden;
+		height: 0;
+		position: relative;
+		.icon-img                //图标图片
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: .44rem;  //22px 预留文字位置
+			box-sizing: broder-box;
+			padding: 1px;
+			.icon-img-content
+				display: block;     //图片居中
+				margin: 0 auto;
+				height: 100%;
+		.icon-desc                 //图标文字
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: .44rem;
+			line-height: .44rem;
+			text-align: center;
+			color: $darkTextColor;
+			ellipsis();
 		
 </style>
