@@ -5,7 +5,9 @@
 				<div class="title border-topbottom">当前城市</div>
 				<div class="button-list">
 					<div class="button-wrapper">
-						<div class="button">成都</div>
+						<router-link to="/">
+							<div class="button">成都</div>
+						</router-link>
 					</div>
 				</div>
 			</div>
@@ -91,6 +93,7 @@ export default {
 				margin: .1rem;
 				padding: .1rem 0;
 				border-radius: .06rem;
+				color: #666;
 	.item-list
 		.item
 			line-height: .76rem;
