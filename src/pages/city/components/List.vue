@@ -1,32 +1,37 @@
 <template>
 	<div class="list" ref="wrapper">
 		<div>
+			<!--当前城市-->
 			<div class="area">
 				<div class="title border-topbottom">当前城市</div>
 				<div class="button-list">
 					<div class="button-wrapper">
-						<router-link to="/">
-							<div class="button">成都</div>
-						</router-link>
+						<div class="button">{{this.$store.state.city}}</div>
 					</div>
 				</div>
 			</div>
 			<div class="area">
 				<div class="title border-topbottom">热门城市</div>
 				<div class="button-list">
-					<!--列表循环-->
-					<div class="button-wrapper" v-for="item in hot" :key="item.id">
+					<!--列表循环 热门城市-->
+					<div class="button-wrapper" 
+						 v-for="item in hot" :key="item.id"
+						 @click="handleCityClick(item.name)">
 						<div class="button">{{item.name}}</div>
 					</div>
 				</div>
 			</div>
-			<!--对象循环-->
+			<!--对象循环 按字母排列的城市-->
 			<div class="area" 
 				 v-for="(item,key) in cities" :key="key"
 				 :ref="key">
 				<div class="title border-topbottom">{{key}}</div>
 				<div class="item-list">
-					<div class="item border-bottom" v-for="innerItem in item" :key="innerItem.id">{{innerItem.name}}</div>
+					<div class="item border-bottom" 
+						 v-for="innerItem in item" :key="innerItem.id" 
+						 @click="handleCityClick(innerItem.name)">
+						{{innerItem.name}}
+					</div>
 				</div>
 			</div>
 		</div>			
@@ -43,9 +48,6 @@ export default {
 		hot: Array,
 		letter: String
 	},
-	mounted () {
-		this.scroll = new BScroll(this.$refs.wrapper);     //引用滚动插件
-	},
 	watch: {
 		letter() {
 			if(this.letter) {
@@ -53,6 +55,15 @@ export default {
 				this.scroll.scrollToElement(element);        //better-scroll提供方法
 			}
 		} 
+	},
+	methods: {
+		handleCityClick (city) {
+			this.$store.commit('changeCity',city);
+			this.$router.push('/');
+		}
+	},
+	mounted () {
+		this.scroll = new BScroll(this.$refs.wrapper);     //引用滚动插件
 	}
 }	
 </script>

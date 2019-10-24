@@ -1,4 +1,5 @@
 <template>
+	<!--排列字母-->
 	<ul class="list">
 		<li class="item" 
 			v-for="item in letters" 
@@ -39,9 +40,11 @@ export default {
 		this.startY = this.$refs['A'][0].offsetTop
 	},
 	methods: {
+		//点击改变显示城市
 		handleClick (e) {
 			this.$emit('change',e.target.innerText)
 		},
+		//触摸改变点击城市
 		handleTouchStart () {
 			this.touchStatus = true;
 		},

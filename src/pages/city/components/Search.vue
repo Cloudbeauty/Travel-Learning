@@ -1,11 +1,15 @@
 <template>
+	<!--搜索框-->
 	<div>
 		<div class="search">
 		<input v-model="keyword" class="search-input" type="text" placeholder="输入城市名或拼音">
 	</div>
+	<!--数据显示-->
 	<div class="search-content" ref="search" v-show="keyword">
 		<ul>
-			<li class="search-item border-bottom" v-for="item in list" :key="item.id">
+			<li class="search-item border-bottom" 
+				v-for="item in list" :key="item.id"
+				@click="handleCityClick(item.name)">
 				{{item.name}}
 			</li>
 			<li class="search-item border-bottom" v-show="hasNoDate">
@@ -36,7 +40,15 @@ export default {
 			return !this.list.length;
 		}
 	},
+	methods: {
+		//点击改变城市并跳转首页
+		handleCityClick (city) {
+			this.$store.commit('changeCity',city);
+			this.$router.push('/');
+		}
+	},
 	watch: {
+		//搜索功能
 		keyword () {
 			if(this.timer) {
 				clearTimeout(this.timer);
@@ -58,6 +70,7 @@ export default {
 		}
 	},
 	mounted () {
+		//引动better-scroll滚动插件
 		this.scroll = new Bscroll(this.$refs.search);
 	}
 }	

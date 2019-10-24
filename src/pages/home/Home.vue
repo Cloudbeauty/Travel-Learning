@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<home-header :city="city"></home-header>
+		<home-header></home-header>
 		<home-swiper :list="swiperList"></home-swiper>
 		<home-icons :list="iconList"></home-icons>
 		<home-recommend :list="recommendList"></home-recommend>
@@ -27,8 +27,7 @@ export default {
 	},
 	data () {
 		return {
-			city: '',
-			swiperList: [],             //swiper由空数组创建 从最后内容开始显示
+			swiperList: [],             //swiper由空数组创建从最后内容开始显示
 			iconList: [],
 			recommendList: [],
 			weekendList: []
@@ -43,8 +42,7 @@ export default {
 		getHomeInfoSucc (res) { 
 			res = res.data;             
 			if (res.ret && res.data){       //数据获取成功    
-				const data = res.data; 
-				this.city = data.city;
+				const data = res.data;
 				this.swiperList = data.swiperList;
 				this.iconList = data.iconList;
 				this.recommendList = data.recommendList;
