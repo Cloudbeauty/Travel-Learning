@@ -17,6 +17,7 @@ export default {
 		height: .72rem;
 		padding: 0 .1rem;
 		background: $bgColor;
+		line-height: .72rem;
 		.search-input
 			height: .62rem;
 			line-height: .62rem;
