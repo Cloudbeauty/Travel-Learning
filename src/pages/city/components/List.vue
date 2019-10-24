@@ -19,7 +19,9 @@
 				</div>
 			</div>
 			<!--对象循环-->
-			<div class="area" v-for="(item,key) in cities" :key="key">
+			<div class="area" 
+				 v-for="(item,key) in cities" :key="key"
+				 :ref="key">
 				<div class="title border-topbottom">{{key}}</div>
 				<div class="item-list">
 					<div class="item border-bottom" v-for="innerItem in item" :key="innerItem.id">{{innerItem.name}}</div>
@@ -36,16 +38,26 @@ export default {
 	name: 'cityList',
 	props: {
 		cities: Object,
-		hot: Array
+		hot: Array,
+		letter: String
 	},
 	mounted () {
 		this.scroll = new BScroll(this.$refs.wrapper);     //引用滚动插件
+	},
+	watch: {
+		letter() {
+			if(this.letter) {
+				const element = this.$refs[this.letter][0];
+				this.scroll.scrollToElement(element);        //better-scroll提供方法
+			}
+		} 
 	}
 }	
 </script>
 
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
+
 .border-topbottom
 	&:before
 		border-color: #ccc;
