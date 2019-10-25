@@ -4,11 +4,13 @@
 			<!--当前城市-->
 			<div class="area">
 				<div class="title border-topbottom">当前城市</div>
+				<router-link to="/">
 				<div class="button-list">
 					<div class="button-wrapper">
 						<div class="button">{{this.$store.state.city}}</div>
 					</div>
 				</div>
+				</router-link>
 			</div>
 			<div class="area">
 				<div class="title border-topbottom">热门城市</div>
