@@ -2,10 +2,10 @@
 <div>
 	<router-link 
 		tag="div" to="/" 
-		class="header-abs" v-show="showAbs">
+		class="header-abs" v-if="showAbs">
 		<div class="iconfont header-abs-back">&#xe624;</div>
 	</router-link>
-	<div class="header-fixed" v-show="!showAbs"
+	<div class="header-fixed" v-if="!showAbs"
 		:style="opacityStyle">
 		<router-link to="/">
 			<div class="iconfont header-fixed-back">&#xe624;</div>
@@ -44,9 +44,13 @@ export default {
 			}
 		}
 	},
-	//activated需要和keep-alive配合使用
-	created () {
-		window.addEventListener('scroll',this.handleScroll)
+	//使用activated、deactivated 需和keep-alive配合使用
+	activated () {
+		window.addEventListener('scroll',this.handleScroll);
+	},
+	//优化 解绑全局事件
+	deactivated () {
+		window.removeEventListener('scroll',this.handleScroll);
 	}
 }
 </script>

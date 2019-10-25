@@ -1,7 +1,9 @@
 <template>
 	<div>
 		<detail-banner></detail-banner>
-		<detail-header></detail-header>
+		<keep-alive>
+			<detail-header></detail-header>
+		</keep-alive>
 		<div class="content"></div>
 	</div>	
 </template>

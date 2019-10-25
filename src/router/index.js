@@ -20,7 +20,7 @@ const routes = [
   {
     path: '/detail/:id',      //动态路由 
     name: 'detail',
-    component: Detail,
+    component: Detail
   }
 ]
 
