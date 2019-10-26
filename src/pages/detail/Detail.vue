@@ -5,7 +5,9 @@
 		:bannerImg="bannerImg" 
 		:gallaryImgs="gallaryImgs">
 		</detail-banner>
+		<keep-alive>
 		<detail-header></detail-header>
+		</keep-alive>
 		<div class="content">
 			<detail-list :list="list"></detail-list>
 		</div>

@@ -1,10 +1,10 @@
 <template>
-	<!--排列字母-->
+	<!--排列字母 prevent阻止默认行为-->
 	<ul class="list">
 		<li class="item" 
 			v-for="item in letters" 
 			:key="item"
-			@touchstart="handleTouchStart"
+			@touchstart.prevent="handleTouchStart"
 			@touchmove="handleTouchMove"
 			@touchend="handleTouchEnd"
 			@click="handleClick"

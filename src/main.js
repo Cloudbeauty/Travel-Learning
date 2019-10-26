@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import VueAwesomeSwiper from 'vue-awesome-swiper'   //轮播图插件
+import 'babel-polyfill'       //自动添加promise 适用低版本浏览器
 import 'styles/reset.css'     //重置页面样式表 统一不同手机的样式初始化
 import 'styles/border.css'    //解决多倍屏里面像素边框显示多像素
 import 'styles/iconfont.css'  //使用图标
